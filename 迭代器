@@ -1,0 +1,30 @@
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Class1 //: System.Collections.DictionaryBase
+    {
+        private Dictionary<string, int> Dictionary=new Dictionary<string, int>();
+        public void Add(string newID,int newInt)
+        {
+            Dictionary.Add(newID, newInt);
+        }
+        public void Remove(string anID)
+        {
+            Dictionary.Remove(anID);
+        }
+        public int this[string anID]
+        {
+            get { return (int)Dictionary[anID]; }
+            set { Dictionary[anID] = value; }
+        }
+        public System.Collections.IEnumerator GetEnumerator()
+        {
+           foreach(object i in Dictionary.Values)
+            {
+                yield return (int)i;
+            }
+        }
+    }
+}
